@@ -13,13 +13,39 @@
   <!-- Hero -->
   <section class="relative min-h-screen bg-center bg-cover" style="background-image:url('Background.jpg')">
     <div class="overlay absolute inset-0"></div>
-    <header class="relative z-10 flex justify-between items-center p-6">
-      <h1 class="text-2xl font-serif">The Secret Sip Society</h1>
-      <nav class="space-x-6 text-sm uppercase">
-        <a href="#about" class="hover:text-amber-400">About</a>
-        <a href="#packages" class="hover:text-amber-400">Packages</a>
-      </nav>
-    </header>
+
+
+
+
+<header class="relative z-50 flex justify-between items-center p-6 bg-transparent">
+  <h1 class="text-2xl font-serif">The Secret Sip Society</h1>
+
+  <!-- Desktop menu -->
+  <nav class="hidden md:flex space-x-6 text-sm uppercase">
+    <a href="#about" class="hover:text-amber-400">About</a>
+    <a href="#packages" class="hover:text-amber-400">Packages</a>
+  </nav>
+
+  <!-- Mobile button -->
+  <button id="menu-btn" class="md:hidden flex items-center">
+    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2"
+      viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 6h16M4 12h16M4 18h16"></path>
+    </svg>
+  </button>
+</header>
+
+<!-- Mobile menu outside hero section -->
+<nav id="mobile-menu" class="hidden absolute top-[80px] left-0 w-full bg-black/90 flex flex-col items-center space-y-4 py-6 md:hidden z-50">
+  <a href="#about" class="hover:text-amber-400">About</a>
+  <a href="#packages" class="hover:text-amber-400">Packages</a>
+</nav>
+
+
+
+
+
+
     <div class="relative z-10 flex flex-col items-center justify-center text-center h-[80vh] px-4">
       <h2 class="text-5xl font-serif mb-4">Sip. Read. Discover the Secret.</h2>
       <p class="text-lg mb-2 max-w-xl">Boxes of wine, books, and sensory surprises delivered to your door.</p>
@@ -127,6 +153,24 @@
 
   </div>
 </footer>
+
+
+
+<script>
+const btn = document.getElementById('menu-btn');
+const menu = document.getElementById('mobile-menu');
+
+btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+
+// Close menu when clicking a link
+document.querySelectorAll('#mobile-menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    menu.classList.add('hidden');
+  });
+});
+</script>
+
+
 
 </body>
 </html>
